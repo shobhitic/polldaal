@@ -1,6 +1,6 @@
 Polldaal::Application.routes.draw do
   
-  get "polls/show"
+  get "polls/:id" => 'polls#show'
 
   get "polls/index"
 

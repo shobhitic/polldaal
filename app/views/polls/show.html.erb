@@ -1,2 +1,9 @@
-<h1>Polls#show</h1>
-<p>Find me in app/views/polls/show.html.erb</p>
+<h1><%= @question.title %></h1>
+<h3><%= @question.description %></h3>
+<ul>
+	<% @question.choices.each do |choice| %>
+	<li>
+		<%= choice.description %>
+	</li>
+	<% end %>
+</ul>
