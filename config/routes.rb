@@ -1,5 +1,9 @@
 Polldaal::Application.routes.draw do
   
+  get "polls/show"
+
+  get "polls/index"
+
   root :to => 'questions#index'
   
   resources :votes
