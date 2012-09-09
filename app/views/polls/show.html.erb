@@ -1,9 +1,8 @@
-<h1><%= @question.title %></h1>
-<h3><%= @question.description %></h3>
-<ul>
+<%= render @question %>
+<ul class="unstyled">
 	<% @question.choices.each do |choice| %>
 	<li>
-		<%= choice.description %>
+		<%= button_to choice.description, votes_path(:choice_id => choice), :class => "btn btn-success" %>
 	</li>
 	<% end %>
 </ul>

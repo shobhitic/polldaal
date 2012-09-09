@@ -14,6 +14,13 @@ class QuestionsController < ApplicationController
   # GET /questions/1.json
   def show
     @question = Question.find(params[:id])
+    
+    @total_votes = 0
+    
+    @question.choices.each do |choice|
+      #logger.info("votes = " + choice.votes.length + "\n\n")
+      @total_votes += choice.votes.length
+    end
 
     respond_to do |format|
       format.html # show.html.erb
