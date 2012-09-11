@@ -4,5 +4,6 @@ class PollsController < ApplicationController
   end
 
   def index
+    @questions = Question.all
   end
 end
