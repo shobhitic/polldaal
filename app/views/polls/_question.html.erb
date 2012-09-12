@@ -1,0 +1,11 @@
+<h1> <%= question.title %> </h1>
+
+<h3> <%= question.description %> </h3>
+<ul class="unstyled">
+	<% question.choices.each do |choice| %>
+	<li>
+		<%= button_to choice.description, votes_path(:choice_id => choice), :class => "btn btn-success" %>
+		(<%= "#{choice.votes.length} votes" %>)
+	</li>
+	<% end %>
+</ul>
