@@ -5,12 +5,4 @@ class ApplicationController < ActionController::Base
   
   private
   
-  def current_new_question
-    Question.find(session[:question_id])
-  rescue ActiveRecord::RecordNotFound
-    @question = Question.create
-    session[:question_id] = @question.id
-    @question
-  end
-  
 end

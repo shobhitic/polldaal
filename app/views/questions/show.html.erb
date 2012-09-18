@@ -6,7 +6,7 @@
 <% @question.choices.each do |choice| %>
 <div>
 	<p>
-		<%= choice.description %>
+		<%= choice.description + " (#{choice.votes.length} votes)"%>
 	</p>
 	<div class="progress progress-info progress-striped">
 		<%= get_votes choice %>

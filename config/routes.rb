@@ -1,10 +1,10 @@
 Polldaal::Application.routes.draw do
   
-  get "polls/:id" => 'polls#show'
+  get "polls/:id" => 'polls#show', :as => :show_polls
 
   get "polls/" => 'polls#index'
 
-  root :to => 'questions#index'
+  root :to => 'polls#index'
   
   resources :votes
 
