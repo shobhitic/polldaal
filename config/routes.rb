@@ -1,5 +1,7 @@
 Polldaal::Application.routes.draw do
   
+  devise_for :users
+
   get "polls/:id" => 'polls#show', :as => :show_polls
 
   get "polls/" => 'polls#index'

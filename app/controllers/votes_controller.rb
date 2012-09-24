@@ -2,7 +2,7 @@ class VotesController < ApplicationController
   # GET /votes
   # GET /votes.json
   def index
-    @votes = Vote.all
+    @votes = Vote.all.reverse
 
     respond_to do |format|
       format.html # index.html.erb
@@ -43,6 +43,8 @@ class VotesController < ApplicationController
     @vote = Vote.new
     choice = Choice.find(params[:choice_id])
     @vote.choice = choice
+
+    @vote.user = current_user
 
     respond_to do |format|
       if @vote.save

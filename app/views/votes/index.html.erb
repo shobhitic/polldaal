@@ -3,6 +3,7 @@
 <table>
   <tr>
     <th>Choice</th>
+    <th>User</th>
     <th></th>
     <th></th>
     <th></th>
@@ -11,6 +12,7 @@
 <% @votes.each do |vote| %>
   <tr>
     <td><%= vote.choice_id %></td>
+    <td><%= vote.user_id %></td>
     <td><%= link_to 'Show', vote %></td>
     <td><%= link_to 'Edit', edit_vote_path(vote) %></td>
     <td><%= link_to 'Destroy', vote, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
