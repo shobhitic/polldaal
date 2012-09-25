@@ -48,7 +48,7 @@ class VotesController < ApplicationController
 
     respond_to do |format|
       if @vote.save
-        format.html { redirect_to choice.question, :notice => 'Vote was successfully created.' }
+        format.html { redirect_to choice.question, :notice => 'Vote was successfully cast.' }
         format.json { render :json => choice.question, :status => :created, :location => choice.question }
       else
         format.html { render :action => "new" }
