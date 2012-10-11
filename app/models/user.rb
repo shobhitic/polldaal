@@ -10,4 +10,5 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
   
   has_many :votes, :dependent => :destroy
+  has_many :questions, :dependent => :destroy
 end

@@ -14,17 +14,28 @@ class QuestionsController < ApplicationController
   # GET /questions/1.json
   def show
     @question = Question.find(params[:id])
-    
-    @total_votes = 0
-    
-    @question.choices.each do |choice|
-      #logger.info("votes = " + choice.votes.length + "\n\n")
-      @total_votes += choice.votes.length
-    end
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render :json => @question }
+    if current_user == @question.user
+      
+      # The user who made this question!
+      
+      @total_votes = 0
+
+      @question.choices.each do |choice|
+      #logger.info("votes = " + choice.votes.length + "\n\n")
+        @total_votes += choice.votes.length
+      end
+
+      respond_to do |format|
+        format.html # show.html.erb
+        format.json { render :json => @question }
+      end
+    else # Not the user who made this question
+      respond_to do |format|
+        format.html { redirect_to root_url, :notice => "You don't have permission to view the stats, faggot!" }
+        format.json { render :json => @question }
+      end
+
     end
   end
 
@@ -32,9 +43,9 @@ class QuestionsController < ApplicationController
   # GET /questions/new.json
   def new
     @question = Question.new
-    
+
     @question.choices.build
-    
+
     respond_to do |format|
       format.html # new.html.erb
       format.json { render :json => @question }

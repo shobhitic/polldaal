@@ -3,18 +3,13 @@ class PollsController < ApplicationController
     @question = Question.find(params[:id])
     @user = current_user
     if @user
-      @question.votes.each do |vote|
-        if @user == vote.user
-          respond_to do |format|
-            format.html { redirect_to @question, :notice => "You\'ve already voted, faggot!" }
-          end
-          return
-        end
+      if @user.votes.where(:question => @question)
+        @has_given_vote = true
       end
     end
   end
 
   def index
-    @questions = Question.all
+    @questions = Question.limit(1)
   end
 end

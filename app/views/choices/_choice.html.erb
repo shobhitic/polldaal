@@ -1,3 +1,7 @@
-<li>
-	<%= button_to choice.description, votes_path(:choice_id => choice), :class => "btn btn-success" %>
-</li>
+<div class="row">
+	<% if @has_given_vote %>
+	<%= button_to choice.description, votes_path(:choice_id => choice, :user_id => current_user), :class => "btn btn-inverse span8", :method => :put %>
+	<% else %>
+	<%= button_to choice.description, votes_path(:choice_id => choice), :class => "btn btn-inverse span8" %>
+	<% end %>
+</div>
