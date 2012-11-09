@@ -1,7 +1,8 @@
 <h1>Listing votes</h1>
 
-<table>
+<table border="1" bordercolor="#875545">
   <tr>
+  	<th>Id</th>
     <th>Choice</th>
     <th>User</th>
     <th></th>
@@ -11,6 +12,7 @@
 
 <% @votes.each do |vote| %>
   <tr>
+  	<td><%= vote.id %></td>
     <td><%= vote.choice_id %></td>
     <td><%= vote.user_id %></td>
     <td><%= link_to 'Show', vote %></td>

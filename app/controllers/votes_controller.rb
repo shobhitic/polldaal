@@ -62,6 +62,8 @@ class VotesController < ApplicationController
   def update
     @vote = Vote.find(params[:id])
 
+    @vote.choice_id = params[:choice_id]
+
     respond_to do |format|
       if @vote.update_attributes(params[:vote])
         format.html { redirect_to @vote, :notice => 'Vote was successfully updated.' }

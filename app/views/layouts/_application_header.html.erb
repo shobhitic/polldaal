@@ -14,7 +14,7 @@
 				<a class="brand"> Random </a>
 			</li>
 			<li>
-				<a class="brand"> New Question </a>
+				<%= link_to "New Question", new_question_path, :class => "brand" %><!-- <a class="brand"> New Question </a> -->
 			</li>
 			<li>
 				<%= get_user_status :class => "brand" %>

@@ -3,13 +3,17 @@ class PollsController < ApplicationController
     @question = Question.find(params[:id])
     @user = current_user
     if @user
-      if @user.votes.where(:question => @question)
-        @has_given_vote = true
+      @question.choices.each do |choice|
+        @vote = @user.votes.where(:choice_id => choice)
+        if  @vote = @vote.first
+          logger.info(@vote.id.to_s + "\n" + @vote.choice_id.to_s + "\n" + @vote.user_id.to_s)
+        break
+        end
       end
     end
   end
 
   def index
-    @questions = Question.limit(1)
+    @questions = Question.all
   end
 end
