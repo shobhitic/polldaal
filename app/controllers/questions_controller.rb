@@ -32,7 +32,7 @@ class QuestionsController < ApplicationController
       end
     else # Not the user who made this question
       respond_to do |format|
-        format.html { redirect_to root_url, :notice => "You don't have permission to view the stats, faggot!" }
+        format.html { redirect_to root_url, :notice => "You don't have permission to view the stats, sorry!" }
         format.json { render :json => @question }
       end
 
