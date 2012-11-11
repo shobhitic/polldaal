@@ -61,12 +61,12 @@ class VotesController < ApplicationController
   # PUT /votes/1.json
   def update
     @vote = Vote.find(params[:id])
-
-    @vote.choice_id = params[:choice_id]
+    choice = Choice.find(params[:choice_id])
+    @vote.choice = choice
 
     respond_to do |format|
       if @vote.update_attributes(params[:vote])
-        format.html { redirect_to @vote, :notice => 'Vote was successfully updated.' }
+        format.html { redirect_to choice.question, :notice => 'Vote was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }
