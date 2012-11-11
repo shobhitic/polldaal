@@ -17,6 +17,7 @@ set :branch, "master"
 set :deploy_via, :remote_cache
 set :scm_verbose, true
 set :use_sudo, false
+ssh_options[:forward_agent] = true
 
 # VPS
 
