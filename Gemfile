@@ -6,6 +6,7 @@ gem 'sqlite3'
 gem 'devise'
 gem 'json'
 gem 'capistrano'
+gem 'pg'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
