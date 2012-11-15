@@ -43,6 +43,11 @@ class VotesController < ApplicationController
   # POST /votes
   # POST /votes.json
   def create
+    if current_user.id == nil
+      format.html { redirect_to choice.question, :notice => 'You need to be logged in to cast your vote.'}
+      //format.json something here...
+      return
+    end
     @vote = Vote.new
     choice = Choice.find(params[:choice_id])
     @vote.choice = choice
