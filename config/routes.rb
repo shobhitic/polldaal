@@ -10,8 +10,6 @@ Polldaal::Application.routes.draw do
   
   resources :votes
 
-  resources :choices
-
   resources :questions
 
   # The priority is based upon order of creation:

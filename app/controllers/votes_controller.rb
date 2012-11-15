@@ -1,4 +1,7 @@
 class VotesController < ApplicationController
+
+  http_basic_authenticate_with :name => "shobhit", :password => "bakal", :except => [:create, :update]
+  
   # GET /votes
   # GET /votes.json
   def index

@@ -1,2 +1,6 @@
 <%= render @question %>
 <%= render 'choices/choices_options', :choices => @question.choices %>
+
+<% if @question.user == current_user %>
+	<%= link_to "Edit", edit_question_path(@question) %>
+<% end %>

@@ -2,10 +2,16 @@
 	<div class="navbar-inner">
 		<ul class="nav row">
 			<li>
-				<%= link_to "Polldaal", root_path, :class => "span3 brand" %>
+				<%= link_to "Polldaal", root_path, :class => "brand" %>
+			</li>
+			<li>
+				<a href="#" class="brand">&nbsp; | &nbsp;</a>
 			</li>
 			<li>
 				<%= link_to "New Question", new_question_path, :class => "brand" %><!-- <a class="brand"> New Question </a> -->
+			</li>
+			<li>
+				<a href="#" class="brand">&nbsp; | &nbsp;</a>
 			</li>
 			<li>
 				<%= get_user_status :class => "brand" %>

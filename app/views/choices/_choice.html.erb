@@ -1,7 +1,1 @@
-<div class="row">
-	<% if @vote %>
-	<%= button_to choice.description, vote_path(@vote, :choice_id => choice), :class => "btn btn-inverse span8", :method => :put %>
-	<% else %>
-	<%= button_to choice.description, votes_path(:choice_id => choice), :class => "btn span8" %>
-	<% end %>
-</div>
+<%= get_choices_based_on_user_votes(choice) %>
