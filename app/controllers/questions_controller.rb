@@ -1,8 +1,5 @@
 class QuestionsController < ApplicationController
   
-  http_basic_authenticate_with :name => "shobhit", :password => "bakal", :only => [:index]
-
-  
   # GET /questions
   # GET /questions.json
   def index
