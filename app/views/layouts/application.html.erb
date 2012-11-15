@@ -3,13 +3,19 @@
 	<head>
 		<title>Polldaal</title>
 		<%= stylesheet_link_tag    "bootstrap", :media => "all" %>
+		<%= stylesheet_link_tag    "meri", :media => "all" %>
 		<%= javascript_include_tag "application" %>
 		<%= csrf_meta_tags %>
 	</head>
 	<body>
 		<%= render "layouts/application_header" %>
-		<div class="container">
-			<%= yield %>
+		<div class="main_content">
+			<div class="container">
+				<p id="notice">
+					<%= notice %>
+				</p>
+				<%= yield %>
+			</div>
 		</div>
 		<hr />
 	</body>
