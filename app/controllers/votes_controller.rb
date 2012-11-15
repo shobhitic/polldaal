@@ -49,20 +49,22 @@ class VotesController < ApplicationController
     @vote.choice = choice
     
     if current_user == nil
-      format.html { redirect_to choice.question, :notice => 'You need to be logged in to cast your vote.'}
-      format.json { head :no_content }
-      return
-    end
+      respond_to do |format|
+        format.html { redirect_to show_polls_path(choice.question_id), :notice => 'You need to be logged in to cast your vote.'}
+        format.json { render :json => choice.question, :status => :unprocessable_entity }
+      end
+    else
 
-    @vote.user = current_user
-
-    respond_to do |format|
-      if @vote.save
-        format.html { redirect_to choice.question, :notice => 'Vote was successfully cast.' }
-        format.json { render :json => choice.question, :status => :created, :location => choice.question }
-      else
-        format.html { render :action => "new" }
-        format.json { render :json => @vote.errors, :status => :unprocessable_entity }
+      @vote.user = current_user
+  
+      respond_to do |format|
+        if @vote.save
+          format.html { redirect_to choice.question, :notice => 'Vote was successfully cast.' }
+          format.json { render :json => choice.question, :status => :created, :location => choice.question }
+        else
+          format.html { render :action => "new" }
+          format.json { render :json => @vote.errors, :status => :unprocessable_entity }
+        end
       end
     end
   end
