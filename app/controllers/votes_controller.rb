@@ -50,7 +50,7 @@ class VotesController < ApplicationController
     
     if current_user == nil
       format.html { redirect_to choice.question, :notice => 'You need to be logged in to cast your vote.'}
-      format.json { render :json => choice.question, head :no_content }
+      format.json { head :no_content }
       return
     end
 
