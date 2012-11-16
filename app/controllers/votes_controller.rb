@@ -42,7 +42,7 @@ class VotesController < ApplicationController
   # POST /votes.json
   def create
     
-    @vote = Vote.new
+    @vote = Vote.new if current_user !=nil
     choice = Choice.find(params[:choice_id])
     @vote.choice = choice
     
